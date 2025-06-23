@@ -1,5 +1,5 @@
-@import './reset.scss';
-@import './variables.scss';
-@import './themes.scss';
-@import './typography.scss';
-@import './globals.scss';
+@use './_reset.scss';
+@use './_variables.scss';
+@use './_themes.scss';
+@use './_typography.scss';
+@use './_globals.scss';
