@@ -1,9 +1,12 @@
-// Placeholder SCSS for Header section
+@use '../../../styles/_mixins.scss' as styles;
+
+
 .header {
-  min-height: 120px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: #c0c0c0;
-  font-size: 1.8rem;
+  justify-content: space-between;
+
+  .title {
+    @include styles.heading-md;
+  }
 }
