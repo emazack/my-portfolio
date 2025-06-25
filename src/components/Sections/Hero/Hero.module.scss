@@ -7,34 +7,54 @@
   .container {
     @include styles.wrapper;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    position: relative;
+    border-bottom: 2px solid var(--white-color);
+    padding-bottom: 104px;
+
+    .oval {
+      position: absolute;
+      top: 150px;
+    }
 
     .text {
-      position: relative;
+      position: absolute;
       width: 100%;
+      max-width: 706px;
+      top: 88px;
+
       .title {
         @include styles.heading-xl;
         margin-bottom: 46px;
         .highlight {
-          border-bottom: 8px solid var(--secondary-color);
           margin-left: 16px;
+          text-decoration: underline;
+          text-decoration-thickness: 6px;
+          text-underline-offset: 6px;
+          text-decoration-color: var(--secondary-color);
         }
       }
       .description {
         @include styles.text-md;
+        color: var(--grey-color);
+        margin-bottom: 66px;
+        max-width: 413px;
       }
       .cta {
         @include styles.text-md;
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 17px;
+        text-decoration-color: var(--secondary-color);
         a {
         }
       }
     }
     .image {
-      position: absolute;
       width: 100%;
-      right: 0;
-      top: 0;
+      display: flex;
+      justify-content: end;
+
       .heroImage {
       }
     }
