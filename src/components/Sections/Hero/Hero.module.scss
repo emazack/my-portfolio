@@ -1,8 +1,42 @@
+@use "../../../styles/_mixins.scss" as styles;
+
 .hero {
-  min-height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f0f0f0;
-  font-size: 2rem;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+
+  .container {
+    @include styles.wrapper;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .text {
+      position: relative;
+      width: 100%;
+      .title {
+        @include styles.heading-xl;
+        margin-bottom: 46px;
+        .highlight {
+          border-bottom: 8px solid var(--secondary-color);
+          margin-left: 16px;
+        }
+      }
+      .description {
+        @include styles.text-md;
+      }
+      .cta {
+        @include styles.text-md;
+        a {
+        }
+      }
+    }
+    .image {
+      position: absolute;
+      width: 100%;
+      right: 0;
+      top: 0;
+      .heroImage {
+      }
+    }
+  }
 }
