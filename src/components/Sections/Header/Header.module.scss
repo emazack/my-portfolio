@@ -1,7 +1,6 @@
-@use '../../../styles/_mixins.scss' as styles;
+@use "../../../styles/_mixins.scss" as styles;
 
 .header {
-  @include styles.wrapper;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,15 +12,28 @@
   background: transparent;
   padding: 39px 0;
   color: var(--white-color);
+  @include styles.wrapper;
+
+  @include styles.mobile-only {
+    flex-direction: column;
+  }
 
   .title {
     @include styles.heading-md;
+
+    @include styles.mobile-only {
+      margin-bottom: 20px;
+    }
   }
 
-  .navlinks{
+  .navlinks {
     display: flex;
     gap: 32px;
     padding: 0 32px;
+
+    @include styles.tablet-only {
+      padding: 0;
+    }
 
     li {
       display: flex;

@@ -1,5 +1,5 @@
-$breakpoint-tablet: 1200px;
 $breakpoint-mobile: 768px;
+$breakpoint-tablet: 1200px;
 
 @mixin light-theme {
   --primary-color: #151515;
@@ -50,18 +50,38 @@ $breakpoint-mobile: 768px;
   letter-spacing: 0;
 }
 
+
+@mixin mobile-only {
+  @media (max-width: #{$breakpoint-mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @media (min-width: #{($breakpoint-mobile + 1)}) and (max-width: #{($breakpoint-tablet - 1)}) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
 @mixin wrapper {
   max-width: 1110px;
   width: 100%;
   margin: 0 auto;
 
-  @media (max-width: $breakpoint-tablet) {
+  @include tablet-only {
     padding-left: 30px;
     padding-right: 30px;
   }
 
-  @media (max-width: $breakpoint-mobile) {
+  @include mobile-only {
     padding-left: 16px;
     padding-right: 16px;
   }
 }
+

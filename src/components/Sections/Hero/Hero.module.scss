@@ -5,27 +5,89 @@
   color: var(--white-color);
 
   .container {
-    @include styles.wrapper;
     display: flex;
     align-items: flex-start;
     position: relative;
     border-bottom: 2px solid var(--white-color);
     padding-bottom: 104px;
+    @include styles.wrapper;
+
+    @include styles.tablet-only {
+      padding-right: 0px;
+      flex-direction: column;
+    }
+
+    @include styles.mobile-only {
+      padding-right: 16px;
+      flex-direction: column;
+      align-items: center;
+    }
 
     .oval {
       position: absolute;
-      top: 150px;
+      top: 210px;
+      right: 70%;
+
+      @include styles.tablet-only {
+        top: 132px;
+      }
+
+      @include styles.mobile-only {
+        top: 124px;
+      }
+    }
+
+    .circle {
+      position: absolute;
+      top: 500px;
+      right: 34.5%;
+      max-width: 129px;
+      max-height: 129px;
+      width: 100%;
+
+      @include styles.tablet-only {
+        top: 591px;
+        right: 0;
+      }
+
+      @include styles.mobile-only {
+        top: 254px;
+        right: 0;
+        z-index: 0;
+      }
     }
 
     .text {
       position: absolute;
       width: 100%;
       max-width: 706px;
-      top: 88px;
+      top: 198px;
+
+      @include styles.tablet-only {
+        max-width: 410px;
+      }
+
+      @include styles.mobile-only {
+        display: flex;
+        flex-direction: column;
+        position: unset;
+        order: 2;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        max-width: 343px;
+        width: 100%;
+        margin: 0 auto;
+      }
 
       .title {
         @include styles.heading-xl;
         margin-bottom: 46px;
+
+        @include styles.mobile-only {
+          @include styles.heading-lg;
+        }
+
         .highlight {
           margin-left: 16px;
           text-decoration: underline;
@@ -34,12 +96,18 @@
           text-decoration-color: var(--secondary-color);
         }
       }
+
       .description {
         @include styles.text-md;
         color: var(--grey-color);
         margin-bottom: 66px;
         max-width: 413px;
+
+        @include styles.mobile-only {
+          max-width: unset;
+        }
       }
+
       .cta {
         @include styles.text-md;
         text-decoration: underline;
@@ -50,10 +118,29 @@
         }
       }
     }
-    .image {
+
+    .mobileImage {
+      display: none;
+
+      @include styles.mobile-only {
+        display: flex;
+        justify-content: center;
+        order: 1;
+        margin-bottom: 40px;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+      }
+    }
+
+    .desktopImage {
       width: 100%;
       display: flex;
       justify-content: end;
+
+      @include styles.mobile-only {
+        display: none;
+      }
 
       .heroImage {
       }
