@@ -15,12 +15,16 @@
     @include styles.tablet-only {
       padding-right: 0px;
       flex-direction: column;
+      border-bottom: none;
+      padding-bottom: 0px;
     }
 
     @include styles.mobile-only {
       padding-right: 16px;
       flex-direction: column;
       align-items: center;
+      border-bottom: none;
+      padding-bottom: 0px;
     }
 
     .oval {
@@ -64,7 +68,12 @@
       top: 198px;
 
       @include styles.tablet-only {
-        max-width: 410px;
+        border-bottom: 2px solid var(--white-color);
+        padding-bottom: 181px;
+        left: 30px;
+        right: 30px;
+        max-width: unset;
+        width: auto;
       }
 
       @include styles.mobile-only {
@@ -75,9 +84,10 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        max-width: 343px;
         width: 100%;
         margin: 0 auto;
+        border-bottom: 2px solid var(--white-color);
+        padding-bottom: 104px;
       }
 
       .title {
@@ -137,6 +147,10 @@
       width: 100%;
       display: flex;
       justify-content: end;
+
+      @include styles.tablet-only {
+        margin-bottom: 60px;
+      }
 
       @include styles.mobile-only {
         display: none;
