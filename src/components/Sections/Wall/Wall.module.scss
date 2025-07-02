@@ -1,0 +1,56 @@
+@use "../../../styles/_mixins.scss" as styles;
+
+.wall {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding-top: 72px;
+  padding-bottom: 140px;
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 58px;
+    position: relative;
+    @include styles.wrapper;
+
+    @include styles.tablet-only {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 52px;
+    }
+
+    @include styles.mobile-only {
+      grid-template-columns: repeat(1, 1fr);
+      row-gap: 24px;
+    }
+
+    .oval {
+      position: absolute;
+      top: 180px;
+      left: 88%;
+
+      @include styles.tablet-only {
+        top: 310px;
+      }
+
+      @include styles.mobile-only {
+        top: 690px;
+        left: 40%;
+      }
+    }
+
+    .box {
+      @include styles.mobile-only {
+        text-align: center;
+      }
+
+      .title {
+        @include styles.heading-lg;
+        margin-bottom: 14px;
+      }
+
+      .description {
+        @include styles.text-md;
+      }
+    }
+  }
+}

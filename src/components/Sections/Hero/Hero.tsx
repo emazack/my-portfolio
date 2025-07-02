@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Hero.module.scss";
 import Image from "next/image";
+import Cta from "@/components/UI/Cta";
 
 const Hero = () => {
     return (
@@ -35,11 +36,7 @@ const Hero = () => {
                     <p className={styles.description}>
                         Based in the UK, I’m a front-end developer passionate about building accessible web apps that users love.
                     </p>
-                    <div className={styles.cta}>
-                        <a href="#contact" className={styles.button}>
-                            CONTACT ME
-                        </a>
-                    </div>
+                    <Cta />
                 </div>
                 {/* Immagine Desktop */}
                 <div className={styles.desktopImage}>

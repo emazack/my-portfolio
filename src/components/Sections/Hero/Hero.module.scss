@@ -30,7 +30,7 @@
     .oval {
       position: absolute;
       top: 210px;
-      right: 70%;
+      right: 76%;
 
       @include styles.tablet-only {
         top: 132px;
@@ -115,16 +115,6 @@
 
         @include styles.mobile-only {
           max-width: unset;
-        }
-      }
-
-      .cta {
-        @include styles.text-md;
-        text-decoration: underline;
-        text-decoration-thickness: 2px;
-        text-underline-offset: 17px;
-        text-decoration-color: var(--secondary-color);
-        a {
         }
       }
     }
