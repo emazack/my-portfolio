@@ -1,1 +1,49 @@
 @use "../../../styles/_mixins.scss" as styles;
+
+.projects {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding-bottom: 140px;
+
+    .container {
+        @include styles.wrapper;
+
+        .introduction {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 80px;
+
+            .title {
+                @include styles.heading-xl;
+            }
+        }
+
+
+        .list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 30px;
+            row-gap: 70px;
+            .item {
+                .image {
+                    margin-bottom: 20px;
+                }
+
+                .name {
+                    @include styles.heading-md;
+                    margin-bottom: 7px;
+                }
+
+                .technologies {
+                    display: grid;
+                    grid-template-columns: repeat(6, 1fr);
+                    column-gap: 18px;
+
+                    @include styles.text-md;
+                    .technology {
+                    }
+                }
+            }
+        }
+    }
+}
