@@ -34,9 +34,9 @@ const Projects = () => {
                                 <Image
                                     src={project.image}
                                     alt={project.name}
-                                    width={546}
-                                    height={400}
                                     className={styles.image}
+                                    fill
+                                    style={{ objectFit: "cover" }}
                                 />
                             </div>
                             <div className={styles.name}>
@@ -49,6 +49,16 @@ const Projects = () => {
                                     </li>
                                 ))}
                             </ul>
+                            <div className={styles.links}>
+                                <Cta
+                                    name="VIEW PROJECT"
+                                    href={project.live}
+                                />
+                                <Cta
+                                    name="VIEW CODE"
+                                    href={project.code}
+                                />
+                            </div>
                         </li>
                     ))}
                 </ul>

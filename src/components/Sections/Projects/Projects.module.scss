@@ -14,8 +14,16 @@
             align-items: center;
             margin-bottom: 80px;
 
+            @include styles.tablet-only {
+                margin-bottom: 60px;
+            }
+
             .title {
                 @include styles.heading-xl;
+
+                @include styles.mobile-only {
+                    @include styles.heading-lg;
+                }
             }
         }
 
@@ -24,13 +32,26 @@
             grid-template-columns: repeat(2, 1fr);
             column-gap: 30px;
             row-gap: 70px;
-            .item {
 
+            @include styles.tablet-only {
+                column-gap: 22px;
+                row-gap: 79px;
+            }
+
+            @include styles.mobile-only {
+                grid-template-columns: repeat(1, 1fr);
+                row-gap: 59px;
+            }
+
+            .item {
                 .imageContainer {
                     margin-bottom: 20px;
                     position: relative;
+                    aspect-ratio: 546 / 400;
+                    z-index: 0;
 
                     .overlay {
+                        z-index: 2;
                         display: flex;
                         gap: 48px;
                         justify-content: center;
@@ -41,16 +62,29 @@
                         left: 0;
                         width: 100%;
                         height: 100%;
-                        background-color: rgba(0, 0, 0, 0.5);
+                        background-color: rgba(0, 0, 0, 0.75);
                         opacity: 0;
                         transition: opacity 0.3s ease;
                         pointer-events: none;
+
+                        @include styles.tablet-only {
+                            display: none;
+                        }
+
+                        @include styles.mobile-only {
+                            display: none;
+                        }
                     }
 
                     &:hover .overlay {
                         opacity: 1;
                         pointer-events: auto;
                         cursor: pointer;
+                    }
+
+                    .image {
+                        z-index: 1;
+                        object-fit: cover;
                     }
                 }
 
@@ -65,7 +99,27 @@
                     column-gap: 18px;
 
                     @include styles.text-md;
-                    .technology {
+
+                    @include styles.tablet-only {
+                        margin-bottom: 20px;
+                    }
+
+                    @include styles.mobile-only {
+                        margin-bottom: 20px;
+                    }
+                }
+
+                .links {
+                    display: none;
+
+                    @include styles.tablet-only {
+                        display: flex;
+                        gap: 32px;
+                    }
+
+                    @include styles.mobile-only {
+                        display: flex;
+                        gap: 32px;
                     }
                 }
             }
