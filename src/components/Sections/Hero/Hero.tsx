@@ -36,7 +36,10 @@ const Hero = () => {
                     <p className={styles.description}>
                         Based in the UK, I’m a front-end developer passionate about building accessible web apps that users love.
                     </p>
-                    <Cta />
+                    <Cta
+                        name="CONTACT ME"
+                        href="#contact"
+                    />
                 </div>
                 {/* Immagine Desktop */}
                 <div className={styles.desktopImage}>
