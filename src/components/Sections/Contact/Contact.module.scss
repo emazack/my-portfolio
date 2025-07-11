@@ -1,8 +1,51 @@
-// Placeholder SCSS for Contact section
+@use "../../../styles/_mixins.scss" as styles;
+
 .contact {
-  min-height: 100px;
-  display: flex;
-  justify-content: center;
-  background: #e0e0e0;
-  font-size: 1.5rem;
+  background-color: var(--tertiary-color);
+  color: var(--white-color);
+  @include styles.text-md;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 84px;
+    padding-bottom: 92px;
+    @include styles.wrapper;
+
+    .text {
+      max-width: 445px;
+      width: 100%;
+
+      .title {
+        margin-bottom: 36px;
+
+        @include styles.heading-xl;
+
+        @include styles.mobile-only {
+          @include styles.heading-lg;
+        }
+      }
+
+      .description {}
+    }
+
+    .form {
+      .formGroup {
+        display: flex;
+        flex-direction: column;
+        max-width: 445px;
+        width: 100%;
+
+        .input {}
+
+        .textarea {
+          overflow-x: hidden;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+        }
+      }
+
+      .button {}
+    }
+  }
 }
