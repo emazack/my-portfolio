@@ -23,21 +23,6 @@
       row-gap: 24px;
     }
 
-    .oval {
-      position: absolute;
-      top: 180px;
-      left: 73%;
-
-      @include styles.tablet-only {
-        top: 310px;
-      }
-
-      @include styles.mobile-only {
-        top: 690px;
-        left: 40%;
-      }
-    }
-
     .box {
       @include styles.mobile-only {
         text-align: center;

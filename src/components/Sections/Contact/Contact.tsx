@@ -89,7 +89,7 @@ const Contact: React.FC = () => {
                         Please fill in the form, and I’ll get back to you as soon as possible.
                     </p>
                 </div>
-                <form className={styles.form} onSubmit={handleSubmit}>
+                <form className={styles.form} onSubmit={handleSubmit} noValidate>
                     <div className={styles.formGroup}>
                         <label htmlFor="name">Name</label>
                         <input

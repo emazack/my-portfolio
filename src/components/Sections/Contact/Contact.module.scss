@@ -11,7 +11,22 @@
     justify-content: space-between;
     padding-top: 84px;
     padding-bottom: 92px;
+    column-gap: 32px;
     @include styles.wrapper;
+
+    @include styles.mobile-only {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    @include styles.tablet-only {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
 
     .oval {
       position: absolute;
@@ -31,6 +46,10 @@
   .text {
     max-width: 445px;
     width: 100%;
+
+    @include styles.mobile-only {
+      margin-bottom: 48px;
+    }
 
     .title {
       margin-bottom: 36px;
@@ -72,6 +91,7 @@
         overflow-x: hidden;
         white-space: pre-wrap;
         word-wrap: break-word;
+        text-align: left;
       }
 
       span {
