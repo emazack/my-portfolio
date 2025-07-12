@@ -7,6 +7,7 @@ $breakpoint-tablet: 1200px;
   --tertiary-color: #242424;
   --grey-color: #d9d9d9;
   --white-color: #ffffff;
+  --error-color: #FF6F5B;
 }
 
 @mixin dark-theme {
@@ -15,6 +16,7 @@ $breakpoint-tablet: 1200px;
   --tertiary-color: #f2f2f2;
   --grey-color: #4a4a4a;
   --white-color: #151515;
+  --error-color: #FF6F5B;
 }
 
 @mixin font-base($weight) {
@@ -50,6 +52,13 @@ $breakpoint-tablet: 1200px;
   letter-spacing: 0;
 }
 
+@mixin text-sm {
+  @include font-base(500);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.17px;
+}
+
 
 @mixin mobile-only {
   @media (max-width: #{$breakpoint-mobile}) {
@@ -82,6 +91,19 @@ $breakpoint-tablet: 1200px;
   @include mobile-only {
     padding-left: 16px;
     padding-right: 16px;
+  }
+}
+
+@mixin cta {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 17px;
+  text-decoration-color: var(--secondary-color);
+  color: var(--white-color);
+  cursor: pointer;
+  @include text-md;
+  &:hover{
+    color: var(--secondary-color);
   }
 }
 

@@ -1,9 +1,5 @@
 @use "../../styles/mixins" as styles;
 
 .cta {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 17px;
-  text-decoration-color: var(--secondary-color);
-  @include styles.text-md;
+  @include styles.cta
 }

@@ -6,55 +6,90 @@
   @include styles.text-md;
 
   .container {
+    position: relative;
     display: flex;
     justify-content: space-between;
     padding-top: 84px;
     padding-bottom: 92px;
     @include styles.wrapper;
 
-    .text {
-      max-width: 445px;
-      width: 100%;
+    .oval {
+      position: absolute;
+      top: 330px;
+      right: 86%;
 
-      .title {
-        margin-bottom: 36px;
-
-        @include styles.heading-xl;
-
-        @include styles.mobile-only {
-          @include styles.heading-lg;
-        }
+      @include styles.tablet-only {
+        top: 132px;
       }
 
-      .description {}
+      @include styles.mobile-only {
+        top: 124px;
+      }
+    }
+  }
+
+  .text {
+    max-width: 445px;
+    width: 100%;
+
+    .title {
+      margin-bottom: 36px;
+
+      @include styles.heading-xl;
+
+      @include styles.mobile-only {
+        @include styles.heading-lg;
+      }
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    max-width: 445px;
+    width: 100%;
+
+    .formGroup {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 11px;
+
+      &:nth-last-child(2) {
+        margin-bottom: 32px;
+      }
+
+      label {
+        @include styles.visually-hidden;
+      }
+
+      .input,
+      textarea {
+        color: var(--white-color);
+        padding: 16px 24px;
+      }
+
+      .textarea {
+        overflow-x: hidden;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+
+      span {
+        border-top: 1px solid var(--white-color);
+      }
+
+      span.error {
+        padding-top: 5px;
+        border-top-color: var(--error-color);
+        color: var(--error-color);
+        text-align: right;
+        @include styles.text-sm;
+      }
     }
 
-    .form {
-      max-width: 445px;
-      width: 100%;
-
-      .formGroup {
-        display: flex;
-        flex-direction: column;
-        border-bottom: 1px solid var(--white-color);
-
-        label{
-          @include styles.visually-hidden;
-        }
-
-        .input {
-          color: var(--white-color);
-          padding: 16px 24px;
-        }
-
-        .textarea {
-          overflow-x: hidden;
-          white-space: pre-wrap;
-          word-wrap: break-word;
-        }
-      }
-
-      .button {}
+    .button {
+      align-self: flex-end;
+      @include styles.cta
     }
   }
 }
