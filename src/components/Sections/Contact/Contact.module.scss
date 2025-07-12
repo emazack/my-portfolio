@@ -12,6 +12,7 @@
     padding-top: 84px;
     padding-bottom: 92px;
     column-gap: 32px;
+    border-bottom: 1px solid var(--white-color);
     @include styles.wrapper;
 
     @include styles.mobile-only {
