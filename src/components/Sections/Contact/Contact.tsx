@@ -7,12 +7,16 @@ type FormData = {
     message: string;
 };
 
+type FormErrors = Partial<FormData>
+
 const Contact: React.FC = () => {
     const [form, setForm] = useState<FormData>({
         name: "",
         email: "",
         message: ""
     });
+
+    const [errors, setErrors] = useState<FormErrors>({});
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -21,9 +25,42 @@ const Contact: React.FC = () => {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        const validationErrors = validateForm(form)
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
         console.log(form); // fetch
         setForm({ name: "", email: "", message: "" });
+        setErrors({});
     };
+
+    function validateForm(formData: FormData): FormErrors {
+        const errors: FormErrors = {};
+
+        // Name
+        if (formData.name.trim() === "") {
+            errors.name = 'The field cannot be empty';
+        } else if (formData.name.trim().length < 3) {
+            errors.name = 'The name is too short';
+        }
+
+        // Email
+        if (formData.email.trim() === "") {
+            errors.email = 'The field cannot be empty';
+        } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+            errors.email = 'Sorry, invalid format here';
+        }
+
+        // Message
+        if (formData.message.trim() === "") {
+            errors.message = 'The field cannot be empty';
+        } else if (formData.message.trim().length < 10) {
+            errors.message = 'The message is too short';
+        }
+
+        return errors;
+    }
 
     return (
         <section className={styles.contact}>
@@ -48,6 +85,7 @@ const Contact: React.FC = () => {
                             onChange={handleChange}
                             required
                             className={styles.input}
+                            placeholder="Your Name"
                         />
                     </div>
                     <div className={styles.formGroup}>
@@ -60,6 +98,7 @@ const Contact: React.FC = () => {
                             onChange={handleChange}
                             required
                             className={styles.input}
+                            placeholder="Your Email"
                         />
                     </div>
                     <div className={styles.formGroup}>
@@ -72,6 +111,7 @@ const Contact: React.FC = () => {
                             onChange={handleChange}
                             required
                             className={styles.textarea}
+                            placeholder="Your Message"
                         />
                     </div>
                     <button type="submit" className={styles.button}>

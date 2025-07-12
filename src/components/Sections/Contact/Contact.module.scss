@@ -30,13 +30,22 @@
     }
 
     .form {
+      max-width: 445px;
+      width: 100%;
+
       .formGroup {
         display: flex;
         flex-direction: column;
-        max-width: 445px;
-        width: 100%;
+        border-bottom: 1px solid var(--white-color);
 
-        .input {}
+        label{
+          @include styles.visually-hidden;
+        }
+
+        .input {
+          color: var(--white-color);
+          padding: 16px 24px;
+        }
 
         .textarea {
           overflow-x: hidden;
