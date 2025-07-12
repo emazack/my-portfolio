@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Hero.module.scss";
 import Image from "next/image";
-import Cta from "@/components/UI/Cta";
+import Cta from "@/components/UI/Cta/Cta";
 
 const Hero = () => {
     return (

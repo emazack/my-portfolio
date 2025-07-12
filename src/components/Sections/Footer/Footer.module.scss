@@ -1,8 +1,26 @@
-// Placeholder SCSS for Footer section
+@use "../../../styles/_mixins.scss" as styles;
+
 .footer {
-  min-height: 80px;
-  display: flex;
-  justify-content: center;
-  background: #d0d0d0;
-  font-size: 1.2rem;
+  background-color: var(--tertiary-color);
+
+  .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 39px 0;
+    color: var(--white-color);
+    @include styles.wrapper;
+  
+    @include styles.mobile-only {
+      flex-direction: column;
+    }
+  
+    .title {
+      @include styles.heading-md;
+  
+      @include styles.mobile-only {
+        margin-bottom: 20px;
+      }
+    }
+  }
 }

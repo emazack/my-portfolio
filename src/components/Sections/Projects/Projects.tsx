@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Projects.module.scss";
-import Cta from "@/components/UI/Cta";
+import Cta from "@/components/UI/Cta/Cta";
 import Image from "next/image";
 import { projects } from "@/data/projects";
 

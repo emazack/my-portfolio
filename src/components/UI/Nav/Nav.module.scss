@@ -1,0 +1,23 @@
+@use "../../../styles/_mixins.scss" as styles;
+
+.nav {
+    
+    .navLinks {
+        display: flex;
+        gap: 32px;
+        padding: 0 32px;
+    
+        @include styles.tablet-only {
+            padding: 0;
+        }
+    
+        li {
+            display: flex;
+        }
+    
+        button {
+            cursor: pointer;
+            color: var(--white-color);
+        }
+    }
+}
