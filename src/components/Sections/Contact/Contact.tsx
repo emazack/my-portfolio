@@ -63,7 +63,7 @@ const Contact: React.FC = () => {
     }
 
     return (
-        <section className={styles.contact}>
+        <section id="contact" className={styles.contact}>
             <div className={styles.container}>
                 <svg
                     className={styles.oval}

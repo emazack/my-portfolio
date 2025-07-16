@@ -2,21 +2,23 @@ $breakpoint-mobile: 768px;
 $breakpoint-tablet: 1200px;
 
 @mixin light-theme {
+  --primary-color: #FFFFFF;
+  --secondary-color: #007A52;
+  --tertiary-color: #F5F5F5;
+  --grey-color: #767676;
+  --text-primary: #151515;
+  --error-color: #D32F2F;
+  --background-overlay: rgba(255, 255, 255, 0.75);
+}
+
+@mixin dark-theme {
   --primary-color: #151515;
   --secondary-color: #4ee1a0;
   --tertiary-color: #242424;
   --grey-color: #d9d9d9;
-  --white-color: #ffffff;
+  --text-primary: #ffffff;
   --error-color: #FF6F5B;
-}
-
-@mixin dark-theme {
-  --primary-color: #ffffff;
-  --secondary-color: #4ee1a0;
-  --tertiary-color: #f2f2f2;
-  --grey-color: #4a4a4a;
-  --white-color: #151515;
-  --error-color: #FF6F5B;
+  --background-overlay: rgba(0, 0, 0, 0.75);
 }
 
 @mixin font-base($weight) {
@@ -99,10 +101,11 @@ $breakpoint-tablet: 1200px;
   text-decoration-thickness: 2px;
   text-underline-offset: 17px;
   text-decoration-color: var(--secondary-color);
-  color: var(--white-color);
+  color: var(--text-primary);
   cursor: pointer;
   @include text-md;
-  &:hover{
+
+  &:hover {
     color: var(--secondary-color);
   }
 }

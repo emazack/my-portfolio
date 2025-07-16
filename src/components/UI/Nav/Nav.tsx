@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Nav.module.scss";
+import { handleNightModeToggle } from "@/utils/utils";
 
 interface NavProps {
     showThemeToggle?: boolean;
@@ -48,7 +49,7 @@ const Nav: React.FC<NavProps> = ({ showThemeToggle = true }) => (
 
             {showThemeToggle && (
                 <li>
-                    <button aria-label="Toggle theme" type="button">
+                    <button onClick={handleNightModeToggle} aria-label="Toggle theme" type="button">
                         <svg
                             width="30"
                             height="30"

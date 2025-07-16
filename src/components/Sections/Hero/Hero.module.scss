@@ -2,13 +2,13 @@
 
 .hero {
   background-color: var(--primary-color);
-  color: var(--white-color);
+  color: var(--text-primary);
 
   .container {
     display: flex;
     align-items: flex-start;
     position: relative;
-    border-bottom: 2px solid var(--white-color);
+    border-bottom: 2px solid var(--text-primary);
     padding-bottom: 104px;
     @include styles.wrapper;
 
@@ -39,6 +39,10 @@
       @include styles.mobile-only {
         top: 124px;
       }
+
+      path {
+        stroke: var(--text-primary);
+      }
     }
 
     .circle {
@@ -59,6 +63,10 @@
         right: 0;
         z-index: 0;
       }
+
+      circle {
+        stroke: var(--text-primary);
+      }
     }
 
     .text {
@@ -68,7 +76,7 @@
       top: 198px;
 
       @include styles.tablet-only {
-        border-bottom: 2px solid var(--white-color);
+        border-bottom: 2px solid var(--text-primary);
         padding-bottom: 181px;
         left: 30px;
         right: 30px;
@@ -86,7 +94,7 @@
         text-align: center;
         width: 100%;
         margin: 0 auto;
-        border-bottom: 2px solid var(--white-color);
+        border-bottom: 2px solid var(--text-primary);
         padding-bottom: 104px;
       }
 
@@ -146,8 +154,7 @@
         display: none;
       }
 
-      .heroImage {
-      }
+      .heroImage {}
     }
   }
 }

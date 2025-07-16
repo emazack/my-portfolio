@@ -2,7 +2,7 @@
 
 .contact {
   background-color: var(--tertiary-color);
-  color: var(--white-color);
+  color: var(--text-primary);
   @include styles.text-md;
 
   .container {
@@ -12,7 +12,7 @@
     padding-top: 84px;
     padding-bottom: 92px;
     column-gap: 32px;
-    border-bottom: 1px solid var(--white-color);
+    border-bottom: 1px solid var(--text-primary);
     @include styles.wrapper;
 
     @include styles.mobile-only {
@@ -41,6 +41,10 @@
       @include styles.mobile-only {
         top: 124px;
       }
+    }
+
+    path {
+      stroke: var(--text-primary);
     }
   }
 
@@ -84,7 +88,7 @@
 
       .input,
       textarea {
-        color: var(--white-color);
+        color: var(--text-primary);
         padding: 16px 24px;
       }
 
@@ -96,7 +100,7 @@
       }
 
       span {
-        border-top: 1px solid var(--white-color);
+        border-top: 1px solid var(--text-primary);
       }
 
       span.error {

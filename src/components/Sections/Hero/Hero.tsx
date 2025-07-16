@@ -41,7 +41,6 @@ const Hero = () => {
                         href="#contact"
                     />
                 </div>
-                {/* Immagine Desktop */}
                 <div className={styles.desktopImage}>
                     <Image
                         src="/foto.png"
@@ -51,8 +50,6 @@ const Hero = () => {
                         className={styles.heroImage}
                     />
                 </div>
-
-                {/* Immagine Mobile */}
                 <div className={styles.mobileImage}>
                     <Image
                         src="/foto-mobile.png"

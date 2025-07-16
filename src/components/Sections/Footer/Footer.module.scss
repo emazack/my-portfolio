@@ -8,7 +8,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 39px 0;
-    color: var(--white-color);
+    color: var(--text-primary);
     @include styles.wrapper;
   
     @include styles.mobile-only {

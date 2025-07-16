@@ -11,7 +11,7 @@
   z-index: 3;
   background: transparent;
   padding: 39px 0;
-  color: var(--white-color);
+  color: var(--text-primary);
   @include styles.wrapper;
 
   @include styles.mobile-only {
