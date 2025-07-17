@@ -103,6 +103,7 @@ $breakpoint-tablet: 1200px;
   text-decoration-color: var(--secondary-color);
   color: var(--text-primary);
   cursor: pointer;
+  max-width: fit-content;
   @include text-md;
 
   &:hover {

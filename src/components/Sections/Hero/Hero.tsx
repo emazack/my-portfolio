@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Hero.module.scss";
 import Image from "next/image";
 import Cta from "@/components/UI/Cta/Cta";
+import { motion } from "motion/react";
 
 const Hero = () => {
     return (
@@ -25,14 +26,19 @@ const Hero = () => {
                 <svg className={styles.circle} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" fill="none">
                     <circle cx="64.5" cy="64.5" r="64" stroke="white" />
                 </svg>
-                <div className={styles.text}>
-                    <h1 className={styles.title}>
+                <motion.div
+                    className={styles.text}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ type: "spring", stiffness: 120 }}
+                >
+                    <h2 className={styles.title}>
                         Nice to meet you! I'm
                         <span className={styles.highlight}>
                             Emanuele
                         </span>
                         .
-                    </h1>
+                    </h2>
                     <p className={styles.description}>
                         Based in the UK, I’m a front-end developer passionate about building accessible web apps that users love.
                     </p>
@@ -40,28 +46,28 @@ const Hero = () => {
                         name="CONTACT ME"
                         href="#contact"
                     />
-                </div>
-                <div className={styles.desktopImage}>
-                    <Image
-                        src="/foto.png"
-                        alt="Hero Desktop"
-                        width={445}
-                        height={720}
-                        className={styles.heroImage}
-                    />
-                </div>
-                <div className={styles.mobileImage}>
-                    <Image
-                        src="/foto-mobile.png"
-                        alt="Hero Mobile"
-                        width={174}
-                        height={383}
-                        className={styles.heroImage}
-                    />
-                </div>
-
+            </motion.div>
+            <div className={styles.desktopImage}>
+                <Image
+                    src="/foto.png"
+                    alt="Hero Desktop"
+                    width={445}
+                    height={720}
+                    className={styles.heroImage}
+                />
             </div>
-        </section>
+            <div className={styles.mobileImage}>
+                <Image
+                    src="/foto-mobile.png"
+                    alt="Hero Mobile"
+                    width={174}
+                    height={383}
+                    className={styles.heroImage}
+                />
+            </div>
+
+        </div>
+        </section >
     );
 }
 
