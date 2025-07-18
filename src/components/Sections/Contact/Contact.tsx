@@ -1,5 +1,6 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState, ChangeEvent, FormEvent, useRef } from "react";
 import styles from "./Contact.module.scss";
+import ReCAPTCHA from "react-google-recaptcha";
 
 type FormData = {
     name: string;
@@ -15,25 +16,43 @@ const Contact: React.FC = () => {
         email: "",
         message: ""
     });
-
     const [errors, setErrors] = useState<FormErrors>({});
+    const recaptchaRef = useRef<ReCAPTCHA | null>(null);
+    const [sending, setSending] = useState(false);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setForm((prev) => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    async function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        const validationErrors = validateForm(form)
-        if (Object.keys(validationErrors).length > 0) {
+        const validationErrors = validateForm(form);
+        if (Object.keys(validationErrors).length) {
             setErrors(validationErrors);
             return;
         }
-        console.log(form); // fetch
-        setForm({ name: "", email: "", message: "" });
-        //setErrors({});
-    };
+
+        try {
+            setSending(true);
+            const token = await recaptchaRef.current!.executeAsync();
+            recaptchaRef.current!.reset();
+
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ ...form, token }),
+            });
+
+            if (!res.ok) throw new Error('Errore invio');
+            setForm({ name: '', email: '', message: '' });
+            setErrors({});
+        } catch (err) {
+            console.error(err);
+        } finally {
+            setSending(false);
+        }
+    }
 
     function validateForm(formData: FormData): FormErrors {
         const errors: FormErrors = {};
@@ -156,6 +175,11 @@ const Contact: React.FC = () => {
                     <button type="submit" className={styles.button}>
                         SEND MESSAGE
                     </button>
+                    <ReCAPTCHA
+                        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                        size="invisible"
+                        ref={recaptchaRef}
+                    />
                 </form>
             </div>
         </section>
