@@ -43,7 +43,6 @@ const Contact: React.FC = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ ...form, token }),
             });
-
             if (!res.ok) throw new Error('Errore invio');
             setForm({ name: '', email: '', message: '' });
             setErrors({});

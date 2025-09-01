@@ -47,7 +47,8 @@ async function sendEmail({
     email: string;
     message: string;
 }) {
-    await fetch('https://api.brevo.com/v3/smtp/email', {
+    
+    const response = await fetch('https://api.brevo.com/v3/smtp/email', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -60,8 +61,13 @@ async function sendEmail({
             },
             to: [{ email: process.env.MAIL_RECEIVER! }],
             replyTo: { email },
-            subject: `Messaggio da ${name}`,
+            subject: `Message from ${name}`,
             htmlContent: `<p>${message.replace(/\n/g, '<br/>')}</p>`,
         }),
     });
+    if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Brevo API Error:', errorData);
+        throw new Error(`Failed to send email. Status: ${response.status}`);
+    }
 }
