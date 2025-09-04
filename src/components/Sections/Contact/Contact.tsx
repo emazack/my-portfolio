@@ -1,6 +1,8 @@
 import React, { useState, ChangeEvent, FormEvent, useRef } from "react";
 import styles from "./Contact.module.scss";
 import ReCAPTCHA from "react-google-recaptcha";
+import Loader from "@/components/UI/Loader/Loader";
+import { p } from "motion/react-client";
 
 type FormData = {
     name: string;
@@ -17,6 +19,7 @@ const Contact: React.FC = () => {
         message: ""
     });
     const [errors, setErrors] = useState<FormErrors>({});
+    const [isSubmitted, setIsSubmitted] = useState<Boolean>(false);
     const recaptchaRef = useRef<ReCAPTCHA | null>(null);
     const [sending, setSending] = useState(false);
 
@@ -43,7 +46,8 @@ const Contact: React.FC = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ ...form, token }),
             });
-            if (!res.ok) throw new Error('Errore invio');
+            if (!res.ok) throw new Error('Something went wrong');
+            setIsSubmitted(true);
             setForm({ name: '', email: '', message: '' });
             setErrors({});
         } catch (err) {
@@ -171,9 +175,18 @@ const Contact: React.FC = () => {
                             {errors.message}
                         </span>
                     </div>
-                    <button type="submit" className={styles.button}>
-                        SEND MESSAGE
-                    </button>
+                    {
+                        sending ?
+                            <Loader /> :
+                            !isSubmitted && <button disabled={sending} type="submit" className={styles.button}>
+                                SEND MESSAGE
+                            </button>
+                    }
+                    {isSubmitted &&
+                        <p className={styles.button}>
+                            THANK YOU FOR YOUR INQUIRY
+                        </p>
+                    }
                     <ReCAPTCHA
                         sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
                         size="invisible"

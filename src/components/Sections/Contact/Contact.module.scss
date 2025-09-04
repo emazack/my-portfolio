@@ -114,7 +114,13 @@
 
     .button {
       align-self: flex-end;
-      @include styles.cta
+      @include styles.cta;
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
     }
+
   }
 }
