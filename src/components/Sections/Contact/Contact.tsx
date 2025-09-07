@@ -2,7 +2,7 @@ import React, { useState, ChangeEvent, FormEvent, useRef } from "react";
 import styles from "./Contact.module.scss";
 import ReCAPTCHA from "react-google-recaptcha";
 import Loader from "@/components/UI/Loader/Loader";
-import { p } from "motion/react-client";
+import { motion, AnimatePresence } from "framer-motion";
 
 type FormData = {
     name: string;
@@ -112,81 +112,85 @@ const Contact: React.FC = () => {
                     </p>
                 </div>
                 <form className={styles.form} onSubmit={handleSubmit} noValidate>
-                    <div className={styles.formGroup}>
-                        <label htmlFor="name">Name</label>
-                        <input
-                            id="name"
-                            name="name"
-                            type="text"
-                            value={form.name}
-                            onChange={handleChange}
-                            className={styles.input}
-                            placeholder="NAME"
-                            aria-invalid={!!errors.name}
-                            autoComplete="name"
-                        />
-                        <span
-                            id="name-error"
-                            className={errors.name ? styles.error : undefined}
-                            role="alert"
-                            aria-live="assertive"
-                        >
-                            {errors.name}
-                        </span>
-                    </div>
-                    <div className={styles.formGroup}>
-                        <label htmlFor="email">Email</label>
-                        <input
-                            id="email"
-                            name="email"
-                            type="email"
-                            value={form.email}
-                            onChange={handleChange}
-                            className={styles.input}
-                            placeholder="EMAIL"
-                            autoComplete="email"
-                        />
-                        <span
-                            id="email-error"
-                            className={errors.email ? styles.error : undefined}
-                            role="alert"
-                            aria-live="assertive"
-                        >
-                            {errors.email}
-                        </span>
-                    </div>
-                    <div className={styles.formGroup}>
-                        <label htmlFor="message">Message</label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            rows={5}
-                            value={form.message}
-                            onChange={handleChange}
-                            className={styles.textarea}
-                            placeholder="MESSAGE"
-                        />
-                        <span
-                            id="message-error"
-                            className={errors.message ? styles.error : undefined}
-                            role="alert"
-                            aria-live="assertive"
-                        >
-                            {errors.message}
-                        </span>
-                    </div>
-                    {
-                        sending ?
-                            <Loader /> :
-                            !isSubmitted && <button disabled={sending} type="submit" className={styles.button}>
-                                SEND MESSAGE
-                            </button>
-                    }
-                    {isSubmitted &&
-                        <p className={styles.button}>
-                            THANK YOU FOR YOUR INQUIRY
-                        </p>
-                    }
+                    <AnimatePresence mode="wait">
+                        {!isSubmitted ? (
+                            <motion.div
+                                key="form-fields"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -20, height: 0, transition: { duration: 0.5 } }}
+                                className={styles.formContentWrapper}
+                            >
+                                <div className={styles.formGroup}>
+                                    <label htmlFor="name">Name</label>
+                                    <input
+                                        id="name"
+                                        name="name"
+                                        type="text"
+                                        value={form.name}
+                                        onChange={handleChange}
+                                        className={styles.input}
+                                        placeholder="NAME"
+                                        aria-invalid={!!errors.name}
+                                        autoComplete="name"
+                                    />
+                                    <span id="name-error" className={errors.name ? styles.error : undefined} role="alert" aria-live="assertive">
+                                        {errors.name}
+                                    </span>
+                                </div>
+                                <div className={styles.formGroup}>
+                                    <label htmlFor="email">Email</label>
+                                    <input
+                                        id="email"
+                                        name="email"
+                                        type="email"
+                                        value={form.email}
+                                        onChange={handleChange}
+                                        className={styles.input}
+                                        placeholder="EMAIL"
+                                        autoComplete="email"
+                                    />
+                                    <span id="email-error" className={errors.email ? styles.error : undefined} role="alert" aria-live="assertive">
+                                        {errors.email}
+                                    </span>
+                                </div>
+                                <div className={styles.formGroup}>
+                                    <label htmlFor="message">Message</label>
+                                    <textarea
+                                        id="message"
+                                        name="message"
+                                        rows={5}
+                                        value={form.message}
+                                        onChange={handleChange}
+                                        className={styles.textarea}
+                                        placeholder="MESSAGE"
+                                    />
+                                    <span id="message-error" className={errors.message ? styles.error : undefined} role="alert" aria-live="assertive">
+                                        {errors.message}
+                                    </span>
+                                </div>
+                                {sending ? (
+                                    <Loader />
+                                ) : (
+                                    <button disabled={sending} type="submit" className={styles.button}>
+                                        SEND MESSAGE
+                                    </button>
+                                )}
+                            </motion.div>
+                        ) : (
+                            <motion.div
+                                key="success-message"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0, transition: { delay: 0.5 } }}
+                                className={styles.formContentWrapper}
+                            >
+                                <p className={styles.button}>
+                                    THANK YOU FOR YOUR INQUIRY
+                                </p>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+
                     <ReCAPTCHA
                         sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
                         size="invisible"

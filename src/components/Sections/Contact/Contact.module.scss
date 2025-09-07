@@ -68,10 +68,14 @@
   }
 
   .form {
-    display: flex;
-    flex-direction: column;
     max-width: 445px;
     width: 100%;
+
+    .formContentWrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 376.18px;
+    }
 
     .formGroup {
       display: flex;
@@ -120,6 +124,11 @@
         opacity: 0.5;
         cursor: not-allowed;
       }
+    }
+
+    p.button {
+      align-self: center;
+      margin-top: 120px;
     }
 
   }
