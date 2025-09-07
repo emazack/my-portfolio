@@ -11,7 +11,7 @@ const Nav: React.FC<NavProps> = ({ showThemeToggle = true }) => (
         <ul className={styles.navLinks}>
             <li>
                 <a
-                    href="https://github.com/tuo-username"
+                    href="https://github.com/emazack"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="GitHub profile"
@@ -30,7 +30,7 @@ const Nav: React.FC<NavProps> = ({ showThemeToggle = true }) => (
 
             <li>
                 <a
-                    href="https://linkedin.com/tuo-username"
+                    href="https://www.linkedin.com/in/emazack"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="LinkedIn profile"

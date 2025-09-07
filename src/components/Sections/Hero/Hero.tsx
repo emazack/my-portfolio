@@ -40,7 +40,7 @@ const Hero = () => {
                         .
                     </h2>
                     <p className={styles.description}>
-                        Based in the UK, I’m a front-end developer passionate about building accessible web apps that users love.
+                        Front-end developer from Italy, creating thoughtful web applications that are as clear to develop as they are to navigate.
                     </p>
                     <Cta
                         name="CONTACT ME"
