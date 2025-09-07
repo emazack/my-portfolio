@@ -4,10 +4,10 @@ export type Skill = {
 };
 
 export const skills: Skill[] = [
-    { name: "HTML", startYear: 4 },
-    { name: "CSS / SCSS", startYear: 4 },
-    { name: "TypeScript", startYear: 3 },
-    { name: "Next.js", startYear: 3 },
-    { name: "Accessibility", startYear: 4 },
-    { name: "Cypress", startYear: 2 }
+    { name: "SCSS / HTML", startYear: 2020 },
+    { name: "Javascript", startYear: 2020 },
+    { name: "React", startYear: 2022 },
+    { name: "Next.js", startYear: 2023 },
+    { name: "TypeScript", startYear: 2023 },
+    { name: "Accessibility", startYear: 2023 }
 ];

@@ -22,6 +22,8 @@ const itemVariants = {
 };
 
 const Wall = () => {
+    const currentYear = new Date().getFullYear();
+    
     return (
         <section className={styles.wall}>
             <motion.div
@@ -34,7 +36,7 @@ const Wall = () => {
                     amount: 0.6
                 }}
             >
-                {skills.map(({ name, years }: Skill) => (
+                {skills.map(({ name, startYear }: Skill) => (
                     <motion.div
                         key={name}
                         className={styles.box}
@@ -42,7 +44,7 @@ const Wall = () => {
                         whileHover={{ scale: 1.04, transition: { type: "spring", stiffness: 220 } }}
                     >
                         <h3 className={styles.title}>{name}</h3>
-                        <p className={styles.description}>{years} {years > 1 ? 'years' : 'year'} of experience</p>
+                        <p className={styles.description}>{currentYear - startYear} years of experience</p>
                     </motion.div>
                 ))}
             </motion.div>
