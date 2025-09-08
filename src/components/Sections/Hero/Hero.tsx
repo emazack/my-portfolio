@@ -50,7 +50,7 @@ const Hero = () => {
             <div className={styles.desktopImage}>
                 <Image
                     src="/foto.png"
-                    alt="Hero Desktop"
+                    alt="Picture of Emanuele desktop version"
                     width={445}
                     height={720}
                     className={styles.heroImage}
@@ -58,14 +58,13 @@ const Hero = () => {
             </div>
             <div className={styles.mobileImage}>
                 <Image
-                    src="/foto-mobile.png"
-                    alt="Hero Mobile"
-                    width={174}
-                    height={383}
+                    src="/foto.png"
+                    alt="Picture of Emanuele mobile version"
+                    width={274}
+                    height={483}
                     className={styles.heroImage}
                 />
             </div>
-
         </div>
         </section >
     );
