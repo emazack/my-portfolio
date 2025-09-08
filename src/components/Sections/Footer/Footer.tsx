@@ -4,7 +4,7 @@ import Nav from "@/components/UI/Nav/Nav";
 import Link from "next/link";
 
 const Footer = () => (
-  <footer className={styles.footer}>
+  <footer className={styles.footer} role="contentinfo">
     <div className={styles.container}>
       <Link
         href="/"
@@ -13,7 +13,9 @@ const Footer = () => (
       >
         emanuelezaccaria
       </Link>
-      <Nav showThemeToggle={false} />
+      <nav aria-label="Footer Navigation">
+        <Nav showThemeToggle={false} />
+      </nav>
     </div>
   </footer>
 );
