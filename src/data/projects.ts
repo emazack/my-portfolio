@@ -1,44 +1,51 @@
-export const projects = [
+export type Project = {
+  name: string;
+  technologies: string[];
+  image: string;
+  live: string;
+  code?: string;
+};
+
+export const projects: Project[] = [
   {
-    name: "DESIGN PORTFOLIO",
-    technologies: ["HTML", "CSS"],
-    image: "/progetto.png",
-    live: "https://tuo-sito/design-portfolio",
-    code: "https://github.com/tuo-utente/design-portfolio"
+    name: "Chef GPT",
+    technologies: ["React", "Vite", "Hugging Face API", "CSS"],
+    image: "/chefgpt.png",
+    live: "https://chef-gpt-eight.vercel.app/",
+    code: "https://github.com/emazack/chef-gpt"
   },
   {
-    name: "APP LANDING PAGE",
-    technologies: ["Next.js", "SCSS"],
-    image: "/progetto.png",
-    live: "https://tuo-sito/app-landing-page",
-    code: "https://github.com/tuo-utente/app-landing-page"
+    name: "User Manager",
+    technologies: ["React", "CSS", "Bootstrap", "Axios"],
+    image: "/usermanager.png",
+    live: "https://emazack.github.io/user-manager/",
+    code: "https://github.com/emazack/user-manager"
   },
   {
-    name: "E-COMMERCE UI",
-    technologies: ["React", "Tailwind"],
-    image: "/progetto.png",
-    live: "https://tuo-sito/ecommerce-ui",
-    code: "https://github.com/tuo-utente/ecommerce-ui"
+    name: "Guess the word",
+    technologies: ["React", "CSS"],
+    image: "/guesstheword.png",
+    live: "https://emazack.github.io/assembly-game/",
+    code: "https://github.com/emazack/assembly-game"
   },
   {
-    name: "BLOG TEMPLATE",
-    technologies: ["TypeScript", "Next.js"],
-    image: "/progetto.png",
-    live: "https://tuo-sito/blog-template",
-    code: "https://github.com/tuo-utente/blog-template"
+    name: "Medical Doctor Landing Page",
+    technologies: ["React", "Next.js", "SCSS", "Vercel", "Node.js"],
+    image: "/landingdoctor.png",
+    live: "https://giusepperoccochirurgo.it/"
   },
   {
-    name: "PORTFOLIO V1",
-    technologies: ["HTML", "CSS", "JS"],
-    image: "/progetto.png",
-    live: "https://tuo-sito/portfolio-v1",
-    code: "https://github.com/tuo-utente/portfolio-v1"
+    name: "Endorsement App",
+    technologies: ["Javascript", "CSS", "Firebase"],
+    image: "/endorsement.png",
+    live: "https://endorsment-app.netlify.app/",
+    code: "https://github.com/emazack/endorsement-web-app/tree/main"
   },
   {
-    name: "DASHBOARD UI",
-    technologies: ["React", "SCSS"],
-    image: "/progetto.png",
-    live: "https://tuo-sito/dashboard-ui",
-    code: "https://github.com/tuo-utente/dashboard-ui"
+    name: "Role-playing-game",
+    technologies: ["JavaScript", "CSS", "HTML"],
+    image: "/roleplayinggame.png",
+    live: "https://emazack.github.io/role-playing-game/",
+    code: "https://github.com/emazack/role-playing-game"
   }
 ];

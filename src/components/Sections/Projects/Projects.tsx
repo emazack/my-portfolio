@@ -42,7 +42,7 @@ const Projects = () => {
               <div className={styles.imageContainer}>
                 <div className={styles.overlay}>
                   <Cta name="VIEW PROJECT" href={project.live} />
-                  <Cta name="VIEW CODE" href={project.code} />
+                  {project.code && <Cta name="VIEW CODE" href={project.code} />}
                 </div>
                 <Image
                   src={project.image}
@@ -62,7 +62,7 @@ const Projects = () => {
 
               <div className={styles.links}>
                 <Cta name="VIEW PROJECT" href={project.live} />
-                <Cta name="VIEW CODE" href={project.code} />
+                {project.code && <Cta name="VIEW CODE" href={project.code} />}
               </div>
             </motion.li>
           ))}
