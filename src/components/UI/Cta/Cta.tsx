@@ -13,11 +13,11 @@ const Cta = ({ name, href }: CtaProps) => {
     return (
         <div className={styles.cta}>
             {isInternalAnchor ? (
-                <a href={href} className={styles.button}>
+                <a href={href} className={styles.button} role="button" tabIndex={0} aria-label={name}>
                     {name}
                 </a>
             ) : (
-                <Link href={href} className={styles.button}>
+                <Link href={href} className={styles.button} aria-label={name}>
                     {name}
                 </Link>
             )}

@@ -4,7 +4,7 @@ import Nav from "@/components/UI/Nav/Nav";
 import Link from "next/link";
 
 const Header = () => (
-  <header className={styles.header}>
+  <header className={styles.header} role="banner">
     <h1 className={styles.title}>
       <Link href="/" aria-label="Back to homepage">
         emanuelezaccaria
