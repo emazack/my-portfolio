@@ -33,7 +33,7 @@ const Hero = () => {
                     transition={{ type: "spring", stiffness: 120 }}
                 >
                     <h2 className={styles.title}>
-                        Nice to meet you! I'm
+                        Nice to meet you! I&apos;m
                         <span className={styles.highlight}>
                             Emanuele
                         </span>

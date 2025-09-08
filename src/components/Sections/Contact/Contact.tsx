@@ -19,7 +19,7 @@ const Contact: React.FC = () => {
         message: ""
     });
     const [errors, setErrors] = useState<FormErrors>({});
-    const [isSubmitted, setIsSubmitted] = useState<Boolean>(false);
+    const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
     const recaptchaRef = useRef<ReCAPTCHA | null>(null);
     const [sending, setSending] = useState(false);
 

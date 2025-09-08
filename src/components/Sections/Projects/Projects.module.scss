@@ -84,19 +84,19 @@
 
                     .image {
                         z-index: 1;
-                        object-fit: cover;
                     }
                 }
 
                 .name {
                     @include styles.heading-md;
                     margin-bottom: 7px;
+                    overflow-wrap: break-word;
                 }
 
                 .technologies {
-                    display: grid;
-                    grid-template-columns: repeat(6, 1fr);
-                    column-gap: 18px;
+                    display: flex; 
+                    flex-wrap: wrap;
+                    gap: 12px;
 
                     @include styles.text-md;
 
