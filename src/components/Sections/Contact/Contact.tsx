@@ -132,7 +132,9 @@ const Contact: React.FC = () => {
                                         className={styles.input}
                                         placeholder="NAME"
                                         aria-invalid={!!errors.name}
+                                        aria-describedby="name-error"
                                         autoComplete="name"
+                                        required
                                     />
                                     <span id="name-error" className={errors.name ? styles.error : undefined} role="alert" aria-live="assertive">
                                         {errors.name}
@@ -148,6 +150,8 @@ const Contact: React.FC = () => {
                                         onChange={handleChange}
                                         className={styles.input}
                                         placeholder="EMAIL"
+                                        aria-invalid={!!errors.email}
+                                        aria-describedby="email-error"
                                         autoComplete="email"
                                     />
                                     <span id="email-error" className={errors.email ? styles.error : undefined} role="alert" aria-live="assertive">
@@ -164,6 +168,9 @@ const Contact: React.FC = () => {
                                         onChange={handleChange}
                                         className={styles.textarea}
                                         placeholder="MESSAGE"
+                                        aria-invalid={!!errors.message}
+                                        aria-describedby="message-error"
+                                        required
                                     />
                                     <span id="message-error" className={errors.message ? styles.error : undefined} role="alert" aria-live="assertive">
                                         {errors.message}
