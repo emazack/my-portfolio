@@ -1,5 +1,3 @@
-import '../styles/index.scss';
-
 import Header from '@/components/Sections/Header/Header';
 import Hero from '@/components/Sections/Hero/Hero';
 import Projects from '@/components/Sections/Projects/Projects';
